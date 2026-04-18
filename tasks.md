@@ -3,10 +3,10 @@
 This task list is derived from the `Requirements.md` and `design.md` specifications.
 
 ## 1. Project Setup & Infrastructure
-- [ ] Initialize frontend application (React Native or Flutter).
-- [ ] Set up Firebase project (Realtime Database, Authentication, Cloud Functions).
-- [ ] Configure Google Cloud Platform (Google Maps Platform, Vertex AI, BigQuery).
-- [ ] Establish environment variables and securely safeguard API keys.
+- [x] Initialize frontend application (React Native or Flutter).
+- [x] Set up Firebase project (Realtime Database, Authentication, Cloud Functions).
+- [x] Configure Google Cloud Platform (Google Maps Platform, Vertex AI, BigQuery).
+- [x] Establish environment variables and securely safeguard API keys.
 
 ## 2. Core Frontend Development
 - [ ] Implement user authentication (Anonymous to OAuth upgrade flow).

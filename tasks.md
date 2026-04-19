@@ -9,10 +9,10 @@ This task list is derived from the `Requirements.md` and `design.md` specificati
 - [x] Establish environment variables and securely safeguard API keys.
 
 ## 2. Core Frontend Development
-- [ ] Implement user authentication (Anonymous to OAuth upgrade flow).
-- [ ] Integrate Google Maps Platform (Advanced Indoor Wayfinding multi-floor mapping).
-- [ ] Develop the main UI/UX focusing on the "Frictionless Fan" persona.
-- [ ] Build accessibility compliance (high-contrast AR visuals, screen reader support, vibration-haptics).
+- [x] Implement user authentication (Anonymous to OAuth upgrade flow).
+- [x] Integrate Google Maps Platform (Advanced Indoor Wayfinding multi-floor mapping).
+- [x] Develop the main UI/UX focusing on the "Frictionless Fan" persona.
+- [x] Build accessibility compliance (high-contrast AR visuals, screen reader support, vibration-haptics).
 
 ## 3. Predictive "Queue-Busting" & Virtual Queuing
 - [ ] Implement interface for remote concession and merchandise browsing.

@@ -21,9 +21,9 @@ This task list is derived from the `Requirements.md` and `design.md` specificati
 - [x] Develop "Time to Walk" calculation and trigger just-in-time departure alerts.
 
 ## 4. Dynamic Routing & AR Navigation
-- [ ] Process and display live Heatmaps depicting red/yellow/green congestion zones.
-- [ ] Implement active routing recalculation to bypass choked corridors.
-- [ ] Integrate AR-Core to render a "Green Path" overlay onto the camera view.
+- [x] Process and display live Heatmaps depicting red/yellow/green congestion zones.
+- [x] Implement active routing recalculation to bypass choked corridors.
+- [x] Integrate AR-Core to render a "Green Path" overlay onto the camera view.
 
 ## 5. "Squad-Sync" Real-Time Coordination
 - [ ] Configure low-latency spatial synchronization via Firebase.

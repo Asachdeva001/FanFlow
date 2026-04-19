@@ -7,6 +7,7 @@ import { auth } from '../config/firebaseConfig';
 import LoginScreen from '../screens/LoginScreen';
 import MapScreen from '../screens/MapScreen';
 import ConcessionScreen from '../screens/ConcessionScreen';
+import ARNavigationScreen from '../screens/ARNavigationScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,7 @@ export default function AppNavigator() {
           <>
             <Stack.Screen name="Map" component={MapScreen} />
             <Stack.Screen name="Concession" component={ConcessionScreen} options={{ presentation: 'modal' }} />
+            <Stack.Screen name="ARNavigation" component={ARNavigationScreen} options={{ presentation: 'fullScreenModal' }} />
           </>
         )}
       </Stack.Navigator>

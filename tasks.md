@@ -26,10 +26,10 @@ This task list is derived from the `Requirements.md` and `design.md` specificati
 - [x] Integrate AR-Core to render a "Green Path" overlay onto the camera view.
 
 ## 5. "Squad-Sync" Real-Time Coordination
-- [ ] Configure low-latency spatial synchronization via Firebase.
-- [ ] Build private "Blue Dot" map overlays for groups.
-- [ ] Implement adaptive rendezvous logic using graph theory to find equidistant, low-congestion meeting points.
-- [ ] Develop collaborative ordering features (flagging a "food run" for squad members).
+- [x] Configure low-latency spatial synchronization via Firebase.
+- [x] Build private "Blue Dot" map overlays for groups.
+- [x] Implement adaptive rendezvous logic using graph theory to find equidistant, low-congestion meeting points.
+- [x] Develop collaborative ordering features (flagging a "food run" for squad members).
 
 ## 6. Big Data Analytics & Venue Operations
 - [ ] Configure data streams via Cloud Functions to flow into BigQuery.

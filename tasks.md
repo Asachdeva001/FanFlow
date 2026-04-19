@@ -15,10 +15,10 @@ This task list is derived from the `Requirements.md` and `design.md` specificati
 - [x] Build accessibility compliance (high-contrast AR visuals, screen reader support, vibration-haptics).
 
 ## 3. Predictive "Queue-Busting" & Virtual Queuing
-- [ ] Implement interface for remote concession and merchandise browsing.
-- [ ] Integrate Vertex AI / Gemini 1.5 Pro as the "Agentic Concierge".
-- [ ] Build Smart Concession Dispatcher to meter flow based on game state (e.g., nearing halftime).
-- [ ] Develop "Time to Walk" calculation and trigger just-in-time departure alerts.
+- [x] Implement interface for remote concession and merchandise browsing.
+- [x] Integrate Vertex AI / Gemini 1.5 Pro as the "Agentic Concierge".
+- [x] Build Smart Concession Dispatcher to meter flow based on game state (e.g., nearing halftime).
+- [x] Develop "Time to Walk" calculation and trigger just-in-time departure alerts.
 
 ## 4. Dynamic Routing & AR Navigation
 - [ ] Process and display live Heatmaps depicting red/yellow/green congestion zones.

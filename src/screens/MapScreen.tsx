@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { auth } from '../config/firebaseConfig';
+import { useNavigation } from '@react-navigation/native';
 
 // SoFi Stadium Coordinates (Demonstration)
 const STADIUM_COORDS = {
@@ -43,6 +44,7 @@ const darkMapStyle = [
 
 export default function MapScreen() {
   const user = auth.currentUser;
+  const navigation = useNavigation<any>();
 
   return (
     <View style={styles.container}>
@@ -52,6 +54,8 @@ export default function MapScreen() {
         initialRegion={STADIUM_COORDS}
         customMapStyle={darkMapStyle}
         showsUserLocation={true}
+        pitchEnabled={true}
+        showsBuildings={true}
       >
         <Marker
           coordinate={{ latitude: 33.9535, longitude: -118.3390 }}
@@ -64,6 +68,10 @@ export default function MapScreen() {
       <View style={styles.overlay}>
         <Text style={styles.uidText}>Fan ID: {user?.uid?.substring(0, 8) || 'GUEST'}</Text>
       </View>
+
+      <TouchableOpacity style={styles.floatingBtn} onPress={() => navigation.navigate('Concession')}>
+        <Text style={styles.floatingBtnText}>🍔 Order Food</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -89,5 +97,24 @@ const styles = StyleSheet.create({
   uidText: {
     color: '#00D1FF',
     fontWeight: 'bold',
+  },
+  floatingBtn: {
+    position: 'absolute',
+    bottom: 40,
+    right: 20,
+    backgroundColor: '#00D1FF',
+    paddingVertical: 15,
+    paddingHorizontal: 25,
+    borderRadius: 30,
+    shadowColor: '#00D1FF',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 8,
+  },
+  floatingBtnText: {
+    color: '#000',
+    fontWeight: 'bold',
+    fontSize: 16,
   }
 });

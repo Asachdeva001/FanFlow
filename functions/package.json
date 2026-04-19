@@ -4,6 +4,7 @@
   "description": "Firebase Cloud Functions for FanFlow",
   "main": "index.js",
   "dependencies": {
+    "@google-cloud/bigquery": "^8.1.1",
     "@google/generative-ai": "^0.24.1",
     "cors": "^2.8.6",
     "firebase-admin": "^11.5.0",

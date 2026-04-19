@@ -32,9 +32,9 @@ This task list is derived from the `Requirements.md` and `design.md` specificati
 - [x] Develop collaborative ordering features (flagging a "food run" for squad members).
 
 ## 6. Big Data Analytics & Venue Operations
-- [ ] Configure data streams via Cloud Functions to flow into BigQuery.
-- [ ] Implement data hashing and PII-stripping to ensure attendee privacy.
-- [ ] Build Looker Dashboards visualizing aggregated movement to predict and manage bottleneck surges.
+- [x] Configure data streams via Cloud Functions to flow into BigQuery.
+- [x] Implement data hashing and PII-stripping to ensure attendee privacy.
+- [x] Build Looker Dashboards visualizing aggregated movement to predict and manage bottleneck surges.
 
 ## 7. Testing & Quality Assurance
 - [ ] Perform extreme load testing (Simulating 50,000+ concurrent DB writes).

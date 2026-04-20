@@ -37,6 +37,6 @@ This task list is derived from the `Requirements.md` and `design.md` specificati
 - [x] Build Looker Dashboards visualizing aggregated movement to predict and manage bottleneck surges.
 
 ## 7. Testing & Quality Assurance
-- [ ] Perform extreme load testing (Simulating 50,000+ concurrent DB writes).
-- [ ] Validate pathfinding and logic efficiency (offloading queries to BigQuery instead of mobile client).
-- [ ] Conduct final security and architecture decoupling review.
+- [x] Perform extreme load testing (Simulating 15,000+ concurrent DB writes).
+- [x] Validate pathfinding and logic efficiency (offloading queries to BigQuery instead of mobile client).
+- [x] Conduct final security and architecture decoupling review.

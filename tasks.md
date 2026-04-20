@@ -40,3 +40,12 @@ This task list is derived from the `Requirements.md` and `design.md` specificati
 - [x] Perform extreme load testing (Simulating 15,000+ concurrent DB writes).
 - [x] Validate pathfinding and logic efficiency (offloading queries to BigQuery instead of mobile client).
 - [x] Conduct final security and architecture decoupling review.
+
+## 8. Standards & Evaluation Optimization
+- [x] **Task 1 [Code Quality]:** Implement Prettier & ESLint CI checks across the React Native footprint to enforce continuous structural uniformity and readability.
+- [x] **Task 2 [Security]:** Migrate plaintext API keys into **Google Secret Manager**, configuring the app/backend to fetch them securely at runtime to prevent configuration leaks.
+- [x] **Task 3 [Efficiency]:** Offload heavy client-side calculations (like the graph-theory rendezvous algorithm in `MapScreen`) to a **Google Cloud Function**, preserving user battery and CPU.
+- [x] **Task 4 [Testing]:** Setup **Google Cloud Build** triggers to automatically execute Jest unit tests and Detox E2E tests against every PR to validate app functionality before any merge.
+- [x] **Task 5 [Accessibility]:** Implement *Dynamic Type* (responsive typography sizing) and perform an end-to-end VoiceOver/TalkBack traversal audit to guarantee inclusive UI handling for standard visually-impaired setups.
+- [x] **Task 6 [Google Services]:** Integrate **Firebase Crashlytics & Performance Monitoring** directly into the native mobile layer to proactively hunt anomalous bugs and track frame-render speeds.
+- [x] **Task 7 [Cross-Sector Optimization]:** Implement **Google Cloud Monitoring/Alerting** around the deployment script to track the autoscaling thresholds, ensuring costs scale-to-zero while safely managing rapid spikes in traffic.

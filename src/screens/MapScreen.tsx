@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import MapView, { Marker, Polyline, Heatmap, PROVIDER_GOOGLE } from 'react-native-maps';
-import { auth, database } from '../config/firebaseConfig';
+import { auth, database, functions } from '../config/firebaseConfig';
 import { useNavigation } from '@react-navigation/native';
 import { ref, onValue, set } from 'firebase/database';
+import { httpsCallable } from 'firebase/functions';
 
 const STADIUM_COORDS = { latitude: 33.9535, longitude: -118.3390, latitudeDelta: 0.005, longitudeDelta: 0.005 };
 
@@ -50,13 +51,15 @@ export default function MapScreen() {
       const data = snapshot.val() || {};
       setSquad(data);
       
-      // Feature: Adaptive Rendezvous calculation (Centroid Midpoint)
+      // Efficiency Optimization: Offloaded Adaptive Rendezvous calculation to Cloud Functions
       const members = Object.values(data) as SquadMember[];
       if (members.length > 0) {
-        const avgLat = members.reduce((sum, m) => sum + m.latitude, 0) / members.length;
-        const avgLng = members.reduce((sum, m) => sum + m.longitude, 0) / members.length;
-        // Dynamically offset the rendezvous coordinate away from the nearest dense heatmap grid
-        setRendezvous({ latitude: avgLat + 0.0001, longitude: avgLng - 0.0001 });
+        const calculateRendezvous = httpsCallable(functions, 'calculateRendezvous');
+        calculateRendezvous({ members }).then((response: any) => {
+          if (response.data && response.data.rendezvous) {
+            setRendezvous(response.data.rendezvous);
+          }
+        }).catch(err => console.error("Rendezvous fail:", err));
       }
     });
 

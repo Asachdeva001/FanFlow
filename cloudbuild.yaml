@@ -1,0 +1,26 @@
+steps:
+  # 1. Install Dependencies
+  - name: 'node:18'
+    entrypoint: 'npm'
+    args: ['ci']
+
+  # 2. Strict Code Quality Check
+  - name: 'node:18'
+    entrypoint: 'npm'
+    args: ['run', 'lint']
+
+  # 3. Strict Jest UI Testing
+  - name: 'node:18'
+    entrypoint: 'npm'
+    args: ['run', 'test']
+
+  # 4. Deploy to Cloud Run (only triggers if tests pass)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args: ['./deploy-cloud-run.sh']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/fanflow/fanflow-web'

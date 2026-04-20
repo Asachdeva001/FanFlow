@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 # Configuration
 REGION="us-central1"
 SERVICE_NAME="fanflow-web"

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { functions } from '../config/firebaseConfig';
+import { functions, app } from '../config/firebaseConfig';
 import { httpsCallable } from 'firebase/functions';
+import { getAnalytics, logEvent } from 'firebase/analytics';
 
 export default function ConcessionScreen() {
   const navigation = useNavigation<any>();
@@ -23,6 +24,12 @@ export default function ConcessionScreen() {
       const data = response.data as { recommendation: string };
       setAiMessage(data.recommendation);
       Alert.alert("Virtual Queue Joined!", data.recommendation);
+      
+      try {
+        const analytics = getAnalytics(app);
+        logEvent(analytics, 'checkout_success', { value: 20.00, currency: 'USD' });
+      } catch(e) {}
+      
     } catch (error) {
       console.error(error);
       Alert.alert("Error", "Could not connect to Agentic Concierge.");
@@ -33,7 +40,15 @@ export default function ConcessionScreen() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+      <TouchableOpacity 
+        style={styles.backBtn} 
+        onPress={() => navigation.goBack()}
+        accessible={true}
+        accessibilityRole="button"
+        accessibilityLabel="Go Back"
+        accessibilityHint="Returns to the previous screen"
+        testID="concession-back-button"
+      >
         <Text style={styles.backBtnText}>← Back to Map</Text>
       </TouchableOpacity>
 
@@ -61,8 +76,14 @@ export default function ConcessionScreen() {
         style={styles.checkoutBtn} 
         onPress={handleCheckout}
         disabled={loading}
+        accessible={true}
+        accessibilityRole="button"
+        accessibilityLabel="Join Virtual Queue"
+        accessibilityState={{ disabled: loading }}
+        accessibilityHint="Submits your order and queries agentic concierge for wait times"
+        testID="join-queue-button"
       >
-        {loading ? <ActivityIndicator color="#000" /> : <Text style={styles.checkoutText}>Join Virtual Queue</Text>}
+        {loading ? <ActivityIndicator color="#000" testID="checkout-spinner" /> : <Text style={styles.checkoutText}>Join Virtual Queue</Text>}
       </TouchableOpacity>
     </View>
   );

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { signInAnonymously } from 'firebase/auth';
-import { auth } from '../config/firebaseConfig';
+import { getAnalytics, logEvent } from 'firebase/analytics';
+import { auth, app } from '../config/firebaseConfig';
 import { useNavigation } from '@react-navigation/native';
 
 export default function LoginScreen() {
@@ -11,6 +12,14 @@ export default function LoginScreen() {
   const handleEnterStadium = async () => {
     setLoading(true);
     try {
+      // Optional logging for Google Services integration
+      try {
+        const analytics = getAnalytics(app);
+        logEvent(analytics, 'login_attempt', { method: 'anonymous' });
+      } catch (e) {
+        // Analytics may not be available in some environments
+      }
+      
       await signInAnonymously(auth);
       // Wait for auth state listener in AppNavigator to switch screens
     } catch (error) {
@@ -28,9 +37,15 @@ export default function LoginScreen() {
         style={styles.button} 
         onPress={handleEnterStadium}
         disabled={loading}
+        accessible={true}
+        accessibilityRole="button"
+        accessibilityLabel="Enter Venue"
+        accessibilityState={{ disabled: loading }}
+        accessibilityHint="Logs you in anonymously and navigates to the stadium map"
+        testID="enter-venue-button"
       >
         {loading ? (
-          <ActivityIndicator color="#fff" />
+          <ActivityIndicator color="#fff" testID="loading-spinner" />
         ) : (
           <Text style={styles.buttonText}>Enter Venue</Text>
         )}

@@ -15,7 +15,14 @@ export default function ARNavigationScreen() {
     return (
       <View style={styles.container}>
         <Text style={styles.permissionText}>We need your permission to render AR navigation overlays.</Text>
-        <TouchableOpacity style={styles.grantButton} onPress={requestPermission}>
+        <TouchableOpacity 
+          style={styles.grantButton} 
+          onPress={requestPermission}
+          accessible={true}
+          accessibilityRole="button"
+          accessibilityLabel="Grant Camera Access"
+          testID="grant-camera-button"
+        >
           <Text style={styles.grantButtonText}>Grant Camera Access</Text>
         </TouchableOpacity>
       </View>
@@ -27,7 +34,15 @@ export default function ARNavigationScreen() {
       <CameraView style={styles.camera} facing="back">
         {/* AR Overlay Container */}
         <View style={styles.overlayContainer}>
-          <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+          <TouchableOpacity 
+            style={styles.backBtn} 
+            onPress={() => navigation.goBack()}
+            accessible={true}
+            accessibilityRole="button"
+            accessibilityLabel="Exit AR Mode"
+            accessibilityHint="Returns back to the map screen"
+            testID="ar-exit-button"
+          >
             <Text style={styles.backBtnText}>← Exit AR Mode</Text>
           </TouchableOpacity>
           

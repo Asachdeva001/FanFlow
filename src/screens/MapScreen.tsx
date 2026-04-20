@@ -130,17 +130,41 @@ export default function MapScreen() {
 
       {/* Social Toolbar */}
       <View style={styles.toolbarRight}>
-         <TouchableOpacity style={[styles.sideBtn, { backgroundColor: isFoodRun ? '#FF0055' : '#B026FF' }]} onPress={toggleFoodRun}>
+         <TouchableOpacity 
+           style={[styles.sideBtn, { backgroundColor: isFoodRun ? '#FF0055' : '#B026FF' }]} 
+           onPress={toggleFoodRun}
+           accessible={true}
+           accessibilityRole="button"
+           accessibilityLabel={isFoodRun ? "Cancel Food Run" : "Flag Food Run"}
+           accessibilityHint="Toggles your status to doing a food run for your squad"
+           testID="food-run-toggle"
+         >
           <Text style={styles.sideBtnText}>{isFoodRun ? "Cancel Run" : "Flag Food Run"}</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.btmRow}>
-        <TouchableOpacity style={styles.arBtn} onPress={() => navigation.navigate('ARNavigation')}>
+        <TouchableOpacity 
+          style={styles.arBtn} 
+          onPress={() => navigation.navigate('ARNavigation')}
+          accessible={true}
+          accessibilityRole="button"
+          accessibilityLabel="Launch Green Path AR"
+          accessibilityHint="Navigates to the augmented reality route finding screen"
+          testID="ar-navigation-button"
+        >
           <Text style={styles.arBtnText}>Green Path AR</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.floatingBtn} onPress={() => navigation.navigate('Concession')}>
+        <TouchableOpacity 
+          style={styles.floatingBtn} 
+          onPress={() => navigation.navigate('Concession')}
+          accessible={true}
+          accessibilityRole="button"
+          accessibilityLabel="Order Food from Concessions"
+          accessibilityHint="Navigates to the concessions menu to order food"
+          testID="concession-button"
+        >
           <Text style={styles.floatingBtnText}>🍔 Order Food</Text>
         </TouchableOpacity>
       </View>
